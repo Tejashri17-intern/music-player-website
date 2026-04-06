@@ -1,0 +1,131 @@
+/* Reset */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #6b21a8, #db2777, #facc15);
+  background-size: 200% 200%;
+  animation: gradient-x 8s ease infinite;
+  min-height: 100vh;
+  color: white;
+}
+
+/* Gradient animation */
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Fade-in animation for components */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease forwards;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating label input styles */
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  outline: none;
+}
+
+.input-wrapper input::placeholder {
+  color: transparent;
+}
+
+.input-wrapper label {
+  position: absolute;
+  left: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(200, 200, 200, 0.7);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input-wrapper input:focus + label,
+.input-wrapper input:not(:placeholder-shown) + label {
+  top: -0.5rem;
+  font-size: 0.75rem;
+  color: #fff;
+}
+
+/* Button hover effect */
+.btn-gradient {
+  background: linear-gradient(to right, #ec4899, #8b5cf6, #3b82f6);
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem;
+  border-radius: 9999px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-gradient:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+
+/* Add this at the bottom of your CSS file */
+button {
+  /* This prevents the buttons from being too "tall" */
+  line-height: 1; 
+  letter-spacing: 0.02em;
+}
+
+/* If the Login button still looks too big, add this specific fix */
+.control-play-btn {
+  /* This ensures your player button stays centered */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@media (max-width: 1200px) {
+  /* Agar screen choti ho toh buttons ko upar shift kar dein ya margin badha dein */
+  .homepage-root .absolute.top-6 {
+    top: 1rem;
+    right: 1.5rem;
+  }
+  
+  /* Playlists container ko margin dena taaki content clear rahe */
+  .main-area-container {
+    padding-right: 120px;
+  }
+}
+
